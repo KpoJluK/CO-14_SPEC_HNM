@@ -89,10 +89,12 @@ if (random 1 > 0.5) then {
     if !(_unit isEqualTo _captive) exitWith {false};
     if (_taskID call BIS_fnc_taskCompleted) exitWith {false};
 
-    if (_unit getVariable ["ace_captives_isHandcuffed", false]) then {
-        _mine setDamage 1;
-        sleep 1;
-    };
+    [{
+        _this params ["_unit","_mine"];
+        if (_unit getVariable ["ace_captives_isHandcuffed", false]) then {
+            _mine setDamage 1;
+        };
+    }, [_unit, _mine], 1] call CBA_fnc_waitAndExecute;
 
     _group_civ setVariable ["no_cache", false];
     {
