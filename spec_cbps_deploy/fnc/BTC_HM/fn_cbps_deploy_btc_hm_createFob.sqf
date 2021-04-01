@@ -29,12 +29,8 @@ Author:
 params [
     ["_pos", [], [[]]],
     ["_FOB_name", "FOB ", [""]],
-    ["_fob_truck", btc_fob_truck, [objNull]],
-    ["_fob_flag", btc_fob_flag, [[]]],
-    ["_fobs", btc_fobs, [[]]]
+    ["_fob_truck", btc_fob_truck, [objNull]]
 ];
-
-private _flag = objNull;
 
 private _marker = createMarker [_FOB_name, _pos];
 _marker setMarkerSize [1, 1];
@@ -43,8 +39,8 @@ _marker setMarkerText _FOB_name;
 _marker setMarkerColor "ColorBlue";
 _marker setMarkerShape "ICON";
 
-[_fob_truck, _flag, _marker] call SPEC_fnc_cbps_deploy_btc_hm_fobInit;
+[_fob_truck, _marker] call SPEC_fnc_cbps_deploy_btc_hm_fobInit;
 
 _fob_truck addEventHandler ["Killed", SPEC_fnc_cbps_deploy_btc_hm_fobKilled];
 
-[_marker, _fob_truck, _flag]
+[_marker, _fob_truck]

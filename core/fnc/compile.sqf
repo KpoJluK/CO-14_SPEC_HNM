@@ -155,7 +155,7 @@ if (isServer) then {
     btc_fnc_side_underwater_generator= compile preprocessFileLineNumbers "core\fnc\side\underwater_generator.sqf";
     btc_fnc_side_convoy = compile preprocessFileLineNumbers "core\fnc\side\convoy.sqf";
     btc_fnc_side_rescue = compile preprocessFileLineNumbers "core\fnc\side\rescue.sqf";
-    btc_fnc_side_capture_officer = compile preprocessFileLineNumbers "core\fnc\side\capture_officer.sqf";
+    // btc_fnc_side_capture_officer = compile preprocessFileLineNumbers "core\fnc\side\capture_officer.sqf";
     btc_fnc_side_hostage = compile preprocessFileLineNumbers "core\fnc\side\hostage.sqf";
     btc_fnc_side_hack = compile preprocessFileLineNumbers "core\fnc\side\hack.sqf";
     btc_fnc_side_kill = compile preprocessFileLineNumbers "core\fnc\side\kill.sqf";
@@ -243,6 +243,9 @@ btc_fnc_tow_check = compile preprocessFileLineNumbers "core\fnc\tow\check.sqf";
 
 //ARSENAL
 btc_fnc_arsenal_ammoUsage = compile preprocessFileLineNumbers "core\fnc\arsenal\ammoUsage.sqf";
+
+//FOB
+btc_fnc_fob_mob_respawns = compile preprocessFileLineNumbers "core\fnc\fob\mob_respawns.sqf";
 
 /////////////////////CLIENT\\\\\\\\\\\\\\\\\\\\\
 if (!isDedicated) then {

@@ -28,6 +28,7 @@ private _fobs_marker = [];
 private _fobs_markerText = [];
 private _fobs_structure = [];
 private _fobs_texts = [];
+private _fobs_mob_respawns = [] call btc_fnc_fob_mob_respawns;
 {
     private _structure = (btc_int_ask_data select 1) select _forEachIndex;
     if ((_x in allMapMarkers) || !(isNull _structure) && (_structure inArea [_structure getVariable ["btc_fob_rallypointPos", [0, 0]], 1, 1, 0, false])) then {
@@ -48,7 +49,7 @@ private _fobs_texts = [];
     };
 } forEach (btc_int_ask_data select 0);
 
-if (_fobs_marker isEqualTo []) exitWith {
+if (_fobs_marker isEqualTo [] && _fobs_mob_respawns isEqualTo []) exitWith {
     (localize "STR_BTC_HAM_O_FOB_REDEPLOY_H_NOFOB") call CBA_fnc_notify;
 };
 
@@ -116,6 +117,21 @@ private _missionsData = [];
     ]
 } forEach _fobs_structure;
 
+{
+    private _btcRespawn = _x getVariable ["btc_mob_respawn", []];
+    _btcRespawn params ["_marker", "_truck"];
+    _missionsData pushBack [
+        position _truck,
+        {["btc_respawn", _this select 9] call CBA_fnc_localEvent;},
+        _marker,
+        format [localize "STR_BTC_HAM_O_FOB_REDEPLOY_H_MOVING", markerText _marker],
+        "",
+        getText (configfile >> "CfgVehicles" >> typeOf _truck >> "editorPreview"),
+        1,
+        [position _truck, _truck]
+    ]
+} forEach _fobs_mob_respawns;
+
 disableserialization;
 (date call BIS_fnc_sunriseSunsetTime) params ["_sunrise", "_sunset"];
 
@@ -132,6 +148,12 @@ private _simul = true;
 {
     _x setMarkerAlphaLocal 0;
 } forEach _fobs_marker;
+
+{
+    private _btcRespawn = _x getVariable ["btc_mob_respawn", []];
+    _btcRespawn params ["_marker", "_truck"];
+    _marker setMarkerAlphaLocal 0;
+} forEach _fobs_mob_respawns;
 
 private _display = [
     _parentDisplay,
@@ -155,9 +177,15 @@ _display displayaddeventhandler [
             {
                 _x setMarkerAlphaLocal 1;
             } forEach %1;
-            ['btc_respawn', %2] call CBA_fnc_removeEventHandler;
+            {
+                private _btcRespawn = _x getVariable [""btc_mob_respawn"", []];
+                _btcRespawn params [""_marker"", ""_truck""];
+                _marker setMarkerAlphaLocal 1;
+            } forEach %2;
+            ['btc_respawn', %3] call CBA_fnc_removeEventHandler;
         ",
         _fobs_marker,
+        _fobs_mob_respawns,
         _EHid
     ]
 ];

@@ -25,14 +25,9 @@ Author:
 
 params [
     ["_truck", objNull, [objNull]],
-    ["_flag", objNull, [objNull]],
-    ["_marker", "", [""]],
-    ["_fobs", btc_fobs, [[]]]
+    ["_marker", "", [""]]
 ];
 
 _truck setVariable ["ace_medical_isMedicalFacility", true, true];
 _truck setVariable ["btc_tickets", -1, true];
-
-(_fobs select 0) pushBack _marker;
-(_fobs select 1) pushBack _truck;
-(_fobs select 2) pushBack _flag;
+_truck setVariable ["btc_mob_respawn", [_marker, _truck], true];

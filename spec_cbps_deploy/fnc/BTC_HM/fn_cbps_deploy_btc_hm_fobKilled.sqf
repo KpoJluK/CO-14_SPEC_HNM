@@ -31,24 +31,23 @@ params [
     ["_killer", objNull, [objNull]],
     ["_instigator", objNull, [objNull]],
     ["_useEffects", true, [true]],
-    ["_delete", false, [true]],
-    ["_fobs", btc_fobs, [[]]]
+    ["_delete", false, [true]]
 ];
 
-private _fob_index = (_fobs select 1) find _struc;
+private _btcRespawn = _struc getVariable ["btc_mob_respawn", []];
+_btcRespawn params ["_marker", "_truck"];
 
 if (btc_debug || btc_debug_log) then {
-    [format ["named %1", (_fobs select 0) select _fob_index], __FILE__, [btc_debug, btc_debug_log]] call btc_fnc_debug_message;
+    [format ["named %1", _truck], __FILE__, [btc_debug, btc_debug_log]] call btc_fnc_debug_message;
 };
 
-deleteMarker ((_fobs select 0) deleteAt _fob_index);
-private _fob = (_fobs select 1) deleteAt _fob_index;
-deleteVehicle ((_fobs select 2) deleteAt _fob_index);
+deleteMarker _marker;
 
-_fob setVariable ["ace_medical_isMedicalFacility", false, true];
+_truck setVariable ["ace_medical_isMedicalFacility", false, true];
+_truck setVariable ["btc_mob_respawn", [], true];
 
 if (_delete) then {
-    deleteVehicle _fob;
+    deleteVehicle _truck;
 };
 
 _this
