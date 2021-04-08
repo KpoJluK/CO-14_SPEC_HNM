@@ -686,28 +686,22 @@ switch (_p_en) do {
             "SpecLib_Taki_Gue_uaz_dshkm",
             "SpecLib_Taki_Gue_uaz_ags",
             "SpecLib_Taki_Gue_uaz",
-            "SpecLib_I_TAKI_TOYOTA_LC_HZJ79_REPAIR",
-            "SpecLib_I_TAKI_TOYOTA_LC_HZJ79_ZU23",
             "VTN_TOYOTA_LC_HZJ79_TOW2B",
             "SpecLib_I_TAKI_TOYOTA_LC_HZJ79_KPVT",
             "SpecLib_I_TAKI_TOYOTA_LC_HZJ79",
-            "SpecLib_uh1h_Taki_Gue_unarmed",
-            "SpecLib_gaz66_ammo_Taki_Gue",
-            "SpecLib_gaz66_zu23_Taki_Gue",
-            "SpecLib_gaz66_repair_Taki_Gue",
             "SpecLib_Taki_Gue_ural",
-            "SpecLib_Ural_Fuel_Taki_Gue_01",
-            "SpecLib_Taki_Gue_ural_open",
-            "SpecLib_Taki_Gue_ural_zu23"
+            "SpecLib_Taki_Gue_ural_open"
         ];
         btc_type_motorized_armed = [
-            "SpecLib_uh1h_Taki_Gue",
             "SpecLib_btr60_Taki_Gue",
             "SpecLib_uh1h_Taki_Gue_gunship",
             "SpecLib_bmp1_Taki_Gue",
             "SpecLib_BRDM2_Taki_Gue",
             "SpecLib_BRDM2_ATGM_Taki_Gue",
-            "SpecLib_BRDM2_HQ_Taki_Gue"
+            "SpecLib_BRDM2_HQ_Taki_Gue",
+            "SpecLib_Taki_Gue_ural_zu23",
+            "SpecLib_gaz66_zu23_Taki_Gue",
+            "SpecLib_I_TAKI_TOYOTA_LC_HZJ79_ZU23"
         ];
         btc_type_mg = [
             "SpecLib_Taki_Gue_DSHKM",
