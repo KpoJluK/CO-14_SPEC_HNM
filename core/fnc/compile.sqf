@@ -147,20 +147,20 @@ if (isServer) then {
     btc_fnc_side_get_city = compile preprocessFileLineNumbers "core\fnc\side\get_city.sqf";
     btc_fnc_side_mines = compile preprocessFileLineNumbers "core\fnc\side\mines.sqf";
     btc_fnc_side_supply = compile preprocessFileLineNumbers "core\fnc\side\supply.sqf";
-    btc_fnc_side_vehicle = compile preprocessFileLineNumbers "core\fnc\side\vehicle.sqf";
-    btc_fnc_side_civtreatment = compile preprocessFileLineNumbers "core\fnc\side\civtreatment.sqf";
+    // btc_fnc_side_vehicle = compile preprocessFileLineNumbers "core\fnc\side\vehicle.sqf";
+    // btc_fnc_side_civtreatment = compile preprocessFileLineNumbers "core\fnc\side\civtreatment.sqf";
     btc_fnc_side_tower = compile preprocessFileLineNumbers "core\fnc\side\tower.sqf";
     btc_fnc_side_checkpoint = compile preprocessFileLineNumbers "core\fnc\side\checkpoint.sqf";
-    btc_fnc_side_civtreatment_boat = compile preprocessFileLineNumbers "core\fnc\side\civtreatment_boat.sqf";
-    btc_fnc_side_underwater_generator= compile preprocessFileLineNumbers "core\fnc\side\underwater_generator.sqf";
+    // btc_fnc_side_civtreatment_boat = compile preprocessFileLineNumbers "core\fnc\side\civtreatment_boat.sqf";
+    // btc_fnc_side_underwater_generator= compile preprocessFileLineNumbers "core\fnc\side\underwater_generator.sqf";
     btc_fnc_side_convoy = compile preprocessFileLineNumbers "core\fnc\side\convoy.sqf";
     btc_fnc_side_rescue = compile preprocessFileLineNumbers "core\fnc\side\rescue.sqf";
-    // btc_fnc_side_capture_officer = compile preprocessFileLineNumbers "core\fnc\side\capture_officer.sqf";
+    btc_fnc_side_capture_officer = compile preprocessFileLineNumbers "core\fnc\side\capture_officer.sqf";
     btc_fnc_side_hostage = compile preprocessFileLineNumbers "core\fnc\side\hostage.sqf";
     btc_fnc_side_hack = compile preprocessFileLineNumbers "core\fnc\side\hack.sqf";
     btc_fnc_side_kill = compile preprocessFileLineNumbers "core\fnc\side\kill.sqf";
-    btc_fnc_side_chemicalLeak = compile preprocessFileLineNumbers "core\fnc\side\chemicalLeak.sqf";
-    btc_fnc_side_EMP = compile preprocessFileLineNumbers "core\fnc\side\EMP.sqf";
+    // btc_fnc_side_chemicalLeak = compile preprocessFileLineNumbers "core\fnc\side\chemicalLeak.sqf";
+    // btc_fnc_side_EMP = compile preprocessFileLineNumbers "core\fnc\side\EMP.sqf";
 
     //LOG
     btc_fnc_log_CuratorObjectPlaced_s = compile preprocessFileLineNumbers "core\fnc\log\CuratorObjectPlaced_s.sqf";
