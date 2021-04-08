@@ -39,7 +39,10 @@ private _fuelSource = [
     _vehicle getVariable ["ace_refuel_hooks", []]
 ];
 private _pylons = getPylonMagazines _vehicle;
-private _isContaminated = _vehicle in btc_chem_contaminated;
+private _isContaminated = false;
+if !(isNil "btc_chem_contaminated") then {
+    _isContaminated = _vehicle in btc_chem_contaminated;
+};
 private _supplyVehicle = [
     [_vehicle] call ace_rearm_fnc_isSource,
     _vehicle getVariable ["ace_rearm_currentSupply", -1]

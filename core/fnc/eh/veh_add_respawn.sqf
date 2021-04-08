@@ -26,11 +26,8 @@ Author:
 params [
     ["_vehicle", objNull, [objNull]],
     ["_time", 30, [0]],
-    ["_helo", btc_helo, [[]]],
-    ["_p_chem", btc_p_chem, [false]]
+    ["_p_chem", false, [false]]
 ];
-
-_helo pushBackUnique _vehicle;
 
 private _type = typeOf _vehicle;
 private _pos = getPosASL _vehicle;
