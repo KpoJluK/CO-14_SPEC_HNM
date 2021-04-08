@@ -43,7 +43,7 @@ Author:
                     }) then {
                         [_wreck, _ied] spawn btc_fnc_ied_boom;
                     };
-                } forEach (_ied nearEntities ["allvehicles", 10]);
+                } forEach (_ied nearEntities ["allvehicles", 5]);
             } else {
                 _ieds_check = _ieds_check - [_ied];
             };
