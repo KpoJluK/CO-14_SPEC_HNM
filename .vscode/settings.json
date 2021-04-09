@@ -1,0 +1,3 @@
+{
+    "sqflint.exclude": ["dist/"]
+}
