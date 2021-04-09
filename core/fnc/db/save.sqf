@@ -134,6 +134,18 @@ private _fobs = [];
 } forEach (btc_fobs select 0);
 profileNamespace setVariable [format ["btc_hm_%1_fobs", _name], _fobs];
 
+private _fobs_mob_respawns = [] call btc_fnc_fob_mob_respawns;
+private _mob_fobs = [];
+{
+    private _btcRespawn = _x getVariable ["btc_mob_respawn", []];
+    _btcRespawn params ["_marker", "_truck"];
+
+    private _pos = getMarkerPos [_marker, true];
+    private _direction = getDir _truck;
+    _mob_fobs pushBack [typeOf _truck, markerText _marker, _pos, _direction];
+} forEach _fobs_mob_respawns;
+profileNamespace setVariable [format ["btc_hm_%1_mob_fobs", _name], _mob_fobs];
+
 //Vehicles status
 private _array_veh = [];
 {

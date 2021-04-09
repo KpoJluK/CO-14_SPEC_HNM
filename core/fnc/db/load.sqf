@@ -102,12 +102,31 @@ btc_cache_pictures = +(_array_cache select 4);
 
 //FOB
 private _fobs = profileNamespace getVariable [format ["btc_hm_%1_fobs", _name], []];
+private _mob_fobs = profileNamespace getVariable [format ["btc_hm_%1_mob_fobs", _name], []];
 
 {
     _x params ["_fob_name", "_pos", ["_direction", 0, [0]]];
 
     [_pos, _direction, _fob_name] call btc_fnc_fob_create_s;
 } forEach _fobs;
+
+{
+    _x params ["_truck_type", "_fob_name", "_pos", ["_direction", 0, [0]]];
+
+    if (_truck_type isEqualTo "rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy") then {
+        private _fob = [_pos, _direction, _fob_name, _truck_type] call SPEC_fnc_cbps_deploy_btc_hm_createFobSave;
+
+        [{ [_this,'deploy_platform',1] spawn rhs_fnc_fmtv_Deploy; }, _fob, 1] call CBA_fnc_waitAndExecute;
+
+        [{ _this animateSource ['deploy_tent',1]; }, _fob, 1] call CBA_fnc_waitAndExecute;
+
+        [{ [_this] remoteExecCall ["SPEC_fnc_cbps_deploy_btc_hm_init", 2]}, _fob, 1] call CBA_fnc_waitAndExecute;
+
+        if (!isNil "btc_fob_truck") then {
+            deleteVehicle btc_fob_truck;
+        }
+    };
+} forEach _mob_fobs;
 
 //REP
 private _global_reputation = profileNamespace getVariable [format ["btc_hm_%1_rep", _name], 0];

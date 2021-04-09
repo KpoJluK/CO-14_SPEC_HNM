@@ -149,12 +149,6 @@ private _simul = true;
     _x setMarkerAlphaLocal 0;
 } forEach _fobs_marker;
 
-{
-    private _btcRespawn = _x getVariable ["btc_mob_respawn", []];
-    _btcRespawn params ["_marker", "_truck"];
-    _marker setMarkerAlphaLocal 0;
-} forEach _fobs_mob_respawns;
-
 private _display = [
     _parentDisplay,
     _mapCenter,
@@ -177,15 +171,9 @@ _display displayaddeventhandler [
             {
                 _x setMarkerAlphaLocal 1;
             } forEach %1;
-            {
-                private _btcRespawn = _x getVariable [""btc_mob_respawn"", []];
-                _btcRespawn params [""_marker"", ""_truck""];
-                _marker setMarkerAlphaLocal 1;
-            } forEach %2;
-            ['btc_respawn', %3] call CBA_fnc_removeEventHandler;
+            ['btc_respawn', %2] call CBA_fnc_removeEventHandler;
         ",
         _fobs_marker,
-        _fobs_mob_respawns,
         _EHid
     ]
 ];
