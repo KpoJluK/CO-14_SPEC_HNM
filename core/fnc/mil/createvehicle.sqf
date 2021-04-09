@@ -62,4 +62,6 @@ _units joinSilent _group;
 private _cargo = _veh emptyPositions "cargo";
 [_group, _pos, _cargo, _needdiver, _type_units, _type_divers] call btc_fnc_mil_createUnits;
 
+btc_curator addCuratorEditableObjects [[_veh], false];
+
 _veh

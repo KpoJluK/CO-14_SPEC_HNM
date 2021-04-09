@@ -2,6 +2,29 @@
 btc_version = [1, 20, 9];
 diag_log format (["=BTC= HEARTS AND MINDS VERSION %1.%2.%3"] + btc_version);
 
+//Curator
+removeAllCuratorAddons btc_curator;
+private _fnc_addonsByTag = {
+    params ["_tags"];
+    private _t = [];
+    private _patches = configFile >> "CfgPatches";
+    {
+        private _condition = format["(['%1', configName _x] call BIS_fnc_inString)",_x];
+        _t append ((_condition configClasses (configFile >> "CfgPatches")) apply {configName _x});
+    } forEach _tags;
+    _t
+};
+private _curator_addons = flatten ([
+    ["A3_Functions","A3_Modules"],
+    ["rhsusf_"],
+    ["ace_"],
+    ["cba_"],
+    ["lambs_"],
+    ["SSS"],
+    ["speclib_units_takistani","speclib_units_takistani_civilians","speclib_units_takistani_locals"]
+] apply {[_x] call _fnc_addonsByTag});
+btc_curator addCuratorAddons _curator_addons;
+
 //Param
 //<< Time options >>
 btc_p_time = "btc_p_time" call BIS_fnc_getParamValue;

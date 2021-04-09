@@ -24,6 +24,10 @@ params [
     ["_group", grpNull, [grpNull]]
 ];
 
+private _units = units _group select {!(_x getVariable ["btc_init", false])};
+
+btc_curator addCuratorEditableObjects [_units, false];
+
 {
     _x setVariable ["btc_init", true];
     _x call btc_fnc_mil_add_eh;
@@ -31,4 +35,4 @@ params [
     if (btc_p_set_skill) then {
         _x call btc_fnc_mil_set_skill;
     };
-} forEach (units _group select {!(_x getVariable ["btc_init", false])});
+} forEach _units;
