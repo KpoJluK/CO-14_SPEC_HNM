@@ -285,8 +285,8 @@ if (isServer) then {
     btc_type_solarPanel = _allClassSorted select {_x isKindOf "Land_SolarPanel_04_base_F"};
 
     //BTC Vehicles in missions.sqm
-    btc_vehicles = [btc_veh_1,btc_veh_2,btc_veh_3,btc_veh_4,btc_veh_5,btc_veh_6,btc_log_truck];
-    btc_helo = [btc_helo_1,btc_helo_2,btc_helo_3,btc_helo_4];
+    btc_vehicles = [btc_veh_1,btc_veh_2,btc_veh_3,btc_log_truck];
+    btc_helo = [btc_helo_1];
 
     // The two arrays below are prefixes of buildings and their multiplier.
     // They will multiply the values of btc_rep_malus_building_destroyed and btc_rep_malus_building_damaged,

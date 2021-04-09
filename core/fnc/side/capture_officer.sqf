@@ -24,6 +24,19 @@ params [
     ["_taskID", "btc_side", [""]]
 ];
 
+private _fnc_exit = {
+    params ["_taskID", "_trigger", "_group", "_vehs",  "_markers"];
+    deleteVehicle _trigger;
+    [_taskID, "FAILED"] call btc_fnc_task_setState;
+    _group setVariable ["no_cache", false];
+    {
+        _group = createGroup btc_enemy_side;
+        (crew _x) joinSilent _group;
+        _group call btc_fnc_data_add_group;
+    } forEach _vehs;
+    [_markers, []] call btc_fnc_delete;
+};
+
 //// Choose two Cities \\\\
 private _usefuls = btc_city_all select {!(isNull _x) && !((_x getVariable ["type", ""]) in ["NameLocal", "Hill", "NameMarine"]) && !(_x getVariable ["occupied", false])};
 if (_usefuls isEqualTo []) exitWith {[] spawn btc_fnc_side_create;};
@@ -82,6 +95,10 @@ for "_i" from 0 to (1 + round random 1) do {
 };
 
 private _captive = selectRandom units _group;
+if (isNil "_captive") exitWith {
+    [_taskID, _trigger, _group, _vehs,  _markers] call _fnc_exit;
+};
+
 removeAllWeapons _captive;
 _group selectLeader _captive;
 
@@ -97,7 +114,7 @@ private _trigger = createTrigger ["EmptyDetector", getPos _city1];
 _trigger setVariable ["captive", _captive];
 _trigger setTriggerArea [15, 15, 0, false];
 _trigger setTriggerActivation [str btc_player_side, "PRESENT", true];
-_trigger setTriggerStatements ["this", format ["_captive = thisTrigger getVariable 'captive'; deleteVehicle thisTrigger; doStop _captive; [_captive, true] call ace_captives_fnc_setSurrendered; ['%1', 'SUCCEEDED'] call BIS_fnc_taskSetState; [['%2', '%4'], 29, _captive] call btc_fnc_task_create; [['%3', '%4'], 21, btc_create_object_point, typeOf btc_create_object_point] call btc_fnc_task_create;", _surrender_taskID, _handcuff_taskID, _back_taskID, _taskID], ""];
+_trigger setTriggerStatements ["this", format ["_captive = thisTrigger getVariable 'captive'; deleteVehicle thisTrigger; doStop _captive; [_captive, true] call ace_captives_fnc_setSurrendered; ['%1', 'SUCCEEDED'] call BIS_fnc_taskSetState; [['%2', '%4'], 29, _captive] call btc_fnc_task_create; [['%3', '%4'], 21, btc_prisoner_zone, typeOf btc_prisoner_zone] call btc_fnc_task_create;", _surrender_taskID, _handcuff_taskID, _back_taskID, _taskID], ""];
 _trigger attachTo [_captive, [0, 0, 0]];
 
 private _agent = [leader _group, _pos2, _taskID] call btc_fnc_info_path;
@@ -132,15 +149,7 @@ if (_taskID call BIS_fnc_taskState isEqualTo "CANCELED") exitWith {
 };
 
 if (!alive _captive || _taskID call BIS_fnc_taskState isEqualTo "FAILED") exitWith {
-    deleteVehicle _trigger;
-    [_taskID, "FAILED"] call btc_fnc_task_setState;
-    _group setVariable ["no_cache", false];
-    {
-        _group = createGroup btc_enemy_side;
-        (crew _x) joinSilent _group;
-        _group call btc_fnc_data_add_group;
-    } forEach _vehs;
-    [_markers, []] call btc_fnc_delete;
+    [_taskID, _trigger, _group, _vehs,  _markers] call _fnc_exit;
 };
 
 50 call btc_fnc_rep_change;

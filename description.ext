@@ -34,7 +34,7 @@ class RscTitles {
 
 class CfgFunctions {
     #include "core\fnc\eh\functions.hpp"
-    #include "vendor\KPPLM\KPPLM_functions.hpp"
+    #include "packages\Gemini\functions.hpp"
     // add your own functions below
     class SPEC {
 		#include "packages\spec_arsenal\functions.hpp"

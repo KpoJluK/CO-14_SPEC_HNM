@@ -1,8 +1,15 @@
 [
     {
-        "sourceFolder": "spec_hearts_and_minds.takistan",
-        "missionName": "spec_hearts_and_minds",
+        "sourceFolder": "CO@14_SPEC_HNM.takistan",
+        "missionName": "CO@14_SPEC_HNM",
         "map": "takistan",
+        "configFile": "",
+        "variables": {}
+    },
+    {
+        "sourceFolder": "CO@14_SPEC_HNM.lythium",
+        "missionName": "CO@14_SPEC_HNM",
+        "map": "lythium",
         "configFile": "",
         "variables": {}
     }
