@@ -25,19 +25,15 @@ const paths: FolderStructureInfo = {
     framework: [
         "./core",
         "./docs",
-        "./KPGUI",
-        "./KPPLM",
-        "./spec_arsenal",
-        "./spec_btc_hm_fun",
-        "./spec_cbps_deploy",
-        "./spec_support",
+        "./packages",
+        "./vendor",
         "init.sqf",
         "define_mod.sqf",
         "README.md",
         "stringtable.xml",
         "description.ext",
     ],
-    missionsFolder: "./missions_base",
+    missionsFolder: "./missions",
     workDir: "./dist",
 };
 
@@ -79,16 +75,13 @@ for (let preset of presets) {
                     .pipe(gulp.dest(mission.getOutputDir()));
             },
 
-            /** Replace variables values in configuration file */
             function copyMissionDef() {
-                console.log(mission.getMissionDefPath());
-                return del(`${mission.getOutputDir()}/core/def/**/*`, {
+                del.sync(`${mission.getOutputDir()}/core/def/**/*`, {
                     force: true,
-                }).then(() => {
-                    return gulp
-                        .src(mission.getMissionDefPath())
-                        .pipe(gulp.dest(`${mission.getOutputDir()}/core/def`));
                 });
+                return gulp
+                    .src(mission.getMissionDefPath())
+                    .pipe(gulp.dest(`${mission.getOutputDir()}/core/def`));
             }
         )
     );

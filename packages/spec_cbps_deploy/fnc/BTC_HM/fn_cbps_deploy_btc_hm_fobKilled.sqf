@@ -27,11 +27,7 @@ Author:
 ---------------------------------------------------------------------------- */
 
 params [
-    ["_struc", objNull, [objNull]],
-    ["_killer", objNull, [objNull]],
-    ["_instigator", objNull, [objNull]],
-    ["_useEffects", true, [true]],
-    ["_delete", false, [true]]
+    ["_struc", objNull, [objNull]]
 ];
 
 private _btcRespawn = _struc getVariable ["btc_mob_respawn", []];
@@ -45,9 +41,5 @@ deleteMarker _marker;
 
 _truck setVariable ["ace_medical_isMedicalFacility", false, true];
 _truck setVariable ["btc_mob_respawn", [], true];
-
-if (_delete) then {
-    deleteVehicle _truck;
-};
 
 _this

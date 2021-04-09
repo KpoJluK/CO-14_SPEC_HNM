@@ -13,10 +13,10 @@ switch (typeOf _vehicle) do {
                         private _openTentText = getText (configfile >> "CfgVehicles" >> (typeOf vehicle _target) >> "UserActions" >> "open_tent" >> "displayName");
 
                         if (_closeTentText isEqualTo _name) then {
-                            ["SPEC_cbps_deploy_cbpsChanged", [vehicle _target, _name, getPos (vehicle _target)]] call CBA_fnc_globalEvent;
+                            ["SPEC_cbps_deploy_cbpsChanged", [vehicle _target, _name, getPos (vehicle _target)]] call CBA_fnc_serverEvent;
                         };
                         if (_openTentText isEqualTo _name) then {
-                            ["SPEC_cbps_deploy_cbpsChanged", [vehicle _target, _name, getPos (vehicle _target)]] call CBA_fnc_globalEvent;
+                            ["SPEC_cbps_deploy_cbpsChanged", [vehicle _target, _name, getPos (vehicle _target)]] call CBA_fnc_serverEvent;
                         };
                     };
                 };

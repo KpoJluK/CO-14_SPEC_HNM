@@ -20,6 +20,7 @@ class cbps_deploy_btc_hm {
     class cbps_deploy_btc_hm_init {};
     class cbps_deploy_btc_hm_handleCBPSEvent {};
     class cbps_deploy_btc_hm_createFob {};
+    class cbps_deploy_btc_hm_createFobSave {};
     class cbps_deploy_btc_hm_fobInit {};
     class cbps_deploy_btc_hm_fobKilled {};
 }

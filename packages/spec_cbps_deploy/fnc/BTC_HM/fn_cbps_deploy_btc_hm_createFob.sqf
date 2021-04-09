@@ -39,7 +39,7 @@ _marker setMarkerText _FOB_name;
 _marker setMarkerColor "ColorBlue";
 _marker setMarkerShape "ICON";
 
-[_fob_truck, _marker] call SPEC_fnc_cbps_deploy_btc_hm_fobInit;
+[_fob_truck, _FOB_name] call SPEC_fnc_cbps_deploy_btc_hm_fobInit;
 
 _fob_truck addEventHandler ["Killed", SPEC_fnc_cbps_deploy_btc_hm_fobKilled];
 
