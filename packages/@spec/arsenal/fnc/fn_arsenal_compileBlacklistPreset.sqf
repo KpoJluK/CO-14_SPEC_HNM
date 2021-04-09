@@ -14,7 +14,7 @@
 */
 params ["_preset"];
 
-private _file = preprocessFile format ["spec_arsenal\presets\%1.json", _preset];
+private _file = preprocessFile format ["packages\@spec\arsenal\presets\%1.json", _preset];
 private _hash = [_file, true] call CBA_fnc_parseJSON;
 
 BLACKLISTED_FROM_ARSENAL_COMMON append _hash;

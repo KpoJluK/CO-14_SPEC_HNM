@@ -1,6 +1,6 @@
 
 loadScreen = "core\img\btc.paa";
-author = "Giallustio";
+author = "Giallustio, Armachovsk Team";
 onLoadName = $STR_BTC_HAM_DESCR_NAME;
 onLoadMission = $STR_BTC_HAM_DESCR_MISSION;
 enabledebugconsole = 1;
@@ -29,24 +29,25 @@ class RscTitles {
 
 #include "core\fnc\task\taskTypes.hpp"
 
-#include "vendor\KPGUI\KPGUI_defines.hpp"
-#include "vendor\KPPLM\ui\KPPLM_dialog.hpp"
+#include "packages\KPGUI\KPGUI_defines.hpp"
+#include "packages\KPPLM\ui\KPPLM_dialog.hpp"
 
 class CfgFunctions {
     #include "core\fnc\eh\functions.hpp"
+    #include "packages\KPPLM\KPPLM_functions.hpp"
     #include "packages\Gemini\functions.hpp"
     // add your own functions below
     class SPEC {
-		#include "packages\spec_arsenal\functions.hpp"
-        #include "packages\spec_cbps_deploy\functions.hpp"
-        #include "packages\spec_btc_hm_fun\functions.hpp"
-        #include "packages\spec_support\functions.hpp"
+		#include "packages\@spec\arsenal\functions.hpp"
+        #include "packages\@spec\cbps_deploy\functions.hpp"
+        #include "packages\@spec\btc_hm\functions.hpp"
+        #include "packages\@spec\rabbit_support\functions.hpp"
 	};
 };
 
 class CfgNotifications
 {
-    #include "packages\spec_arsenal\notifications.hpp"
+    #include "packages\@spec\arsenal\notifications.hpp"
 };
 
 // CBA XEH

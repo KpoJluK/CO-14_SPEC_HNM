@@ -1,5 +1,5 @@
 class arsenal {
-  file = "spec_arsenal\fnc";
+  file = "packages\@spec\arsenal\fnc";
 
   class arsenal_addAllVirtualCargo {};
 

@@ -26,7 +26,6 @@ const paths: FolderStructureInfo = {
         "./core",
         "./docs",
         "./packages",
-        "./vendor",
         "init.sqf",
         "define_mod.sqf",
         "README.md",
