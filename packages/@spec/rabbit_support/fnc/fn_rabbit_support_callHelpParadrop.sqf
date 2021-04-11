@@ -49,36 +49,45 @@ if(Call_help_paradrop)exitWith{hint "Самолет еще не готов дл�
 			removeGoggles _unit_desant;
 
 			comment "Add weapons";
-			_unit_desant addWeapon "Tier1_HK416D145_SMR_MFT_Desert";
-			_unit_desant addPrimaryWeaponItem "Tier1_KAC_556_QDC_CQB_Tan";
-			_unit_desant addPrimaryWeaponItem "Tier1_145_LA5_Side";
-			_unit_desant addPrimaryWeaponItem "Tier1_ATACR18_ADM_Desert";
-			_unit_desant addPrimaryWeaponItem "rhs_mag_30Rnd_556x45_Mk318_Stanag";
+			_unit_desant addWeapon "rhs_weap_m4a1_blockII_grip_KAC_d";
+			_unit_desant addPrimaryWeaponItem "Tier1_SandmanS_Desert";
+			_unit_desant addPrimaryWeaponItem "rhsusf_acc_anpeq15side";
+			_unit_desant addPrimaryWeaponItem "Tier1_Eotech553_3xMag_Tan_Up";
+			_unit_desant addPrimaryWeaponItem "rhs_mag_30Rnd_556x45_Mk318_SCAR_Ranger";
 			_unit_desant addPrimaryWeaponItem "Tier1_Gangster_Grip_Tan";
-			_unit_desant addWeapon "rhs_weap_M136_hedp";
 
 			comment "Add containers";
-			_unit_desant forceAddUniform "gen3_cryes_l";
-			_unit_desant addVest "Crye_AVS23_NoBelt";
-			_unit_desant addBackpack "moh_Parachute_low";
+			_unit_desant forceAddUniform "rhs_uniform_cu_ocp";
+			_unit_desant addVest "rhsusf_iotv_ocp_Squadleader";
+
+			comment "Add binoculars";
+			_unit_desant addWeapon "Binocular";
 
 			comment "Add items to containers";
 			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "ACE_epinephrine";};
 			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "ACE_tourniquet";};
 			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "ACE_morphine";};
 			for "_i" from 1 to 4 do {_unit_desant addItemToUniform "ACE_quikclot";};
-			for "_i" from 1 to 4 do {_unit_desant addItemToUniform "ACE_elasticBandage";};
-			for "_i" from 1 to 4 do {_unit_desant addItemToUniform "ACE_fieldDressing";};
-			for "_i" from 1 to 4 do {_unit_desant addItemToUniform "ACE_packingBandage";};
+			for "_i" from 1 to 5 do {_unit_desant addItemToUniform "ACE_elasticBandage";};
+			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "ACE_fieldDressing";};
+			for "_i" from 1 to 5 do {_unit_desant addItemToUniform "ACE_packingBandage";};
 			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "ACE_splint";};
-			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "HandGrenade";};
-			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "SmokeShell";};
-			for "_i" from 1 to 2 do {_unit_desant addItemToUniform "rhs_mag_30Rnd_556x45_Mk318_Stanag_Pull";};
-			for "_i" from 1 to 14 do {_unit_desant addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag_Pull";};
-			_unit_desant addHeadgear "airframe_cover_25_ComtacIII_Arc";
-			_unit_desant addGoggles "tfl_arc_bala_glasses_mc";
+			for "_i" from 1 to 10 do {_unit_desant addItemToVest "rhs_mag_30Rnd_556x45_Mk318_SCAR_Ranger";};
+			for "_i" from 1 to 3 do {_unit_desant addItemToVest "rhs_mag_an_m8hc";};
+			for "_i" from 1 to 2 do {_unit_desant addItemToVest "HandGrenade";};
+			_unit_desant addHeadgear "rhsusf_ach_helmet_ocp_norotos";
+			_unit_desant addGoggles "shemagh2_goggclr_tan";
+
+			comment "Add items";
+			_unit_desant linkItem "ItemMap";
+			_unit_desant linkItem "ItemCompass";
+			_unit_desant linkItem "ItemWatch";
+			_unit_desant linkItem "ItemRadio";
+			_unit_desant linkItem "ItemGPS";
+			_unit_desant linkItem "Louetta_GPNVG_2";
+
+			sleep 1;
 		};
-		_group_desant enableGunLights "ForceOn";
 		// группе ботов охранять зону игрока
  		_wp = _group_desant addWaypoint [_Position_player, 0];
    		_wp setWaypointType "HOLD";

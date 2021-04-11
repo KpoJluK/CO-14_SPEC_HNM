@@ -105,22 +105,22 @@ while {true} do {
 	// all vehicle
 	_vehicle = nearestObjects [[0,0,0], ["Car"], 15000];
 		{ if(_x getHitPointDamage "hitEngine" > 0.8) then{
-			if(_x in vehicle_on_fire)exitWith{};
+			if(_x in vehicle_on_fire or !alive _x)exitWith{};
 			vehicle_on_fire pushBack _x;
 			[_x] spawn {
-			params ["_vehicle_select"];
-			fire_this_vehicle = [getPos _vehicle_select, "FIRE_MEDIUM"] call fn_createEffect;
-			{_x attachTo [_vehicle_select, [0, 1.5, -0.7]]} forEach fire_this_vehicle;
-			_damage = 0;
+				params ["_vehicle_select"];
+				_fire_this_vehicle = [getPos _vehicle_select, "FIRE_MEDIUM"] call fn_createEffect;
+				{_x attachTo [_vehicle_select, [0, 1.5, -0.7]]} forEach _fire_this_vehicle;
+				_damage = 0;
 				waitUntil{
 					sleep 1;
 					_damage = _damage + 1;
 					if(_damage >= 90)exitWith{true};
 					!alive _vehicle_select or _vehicle_select getHitPointDamage "hitEngine" <= 0.6;
 				};
-			if(_damage >=90)then{_vehicle_select setDamage 1};
-			{deleteVehicle _x} forEach fire_this_vehicle;
-			vehicle_on_fire = vehicle_on_fire - [_vehicle_select];
+				if(_damage >=90)then{_vehicle_select setDamage 1};
+				[[], {{deleteVehicle _x} forEach _fire_this_vehicle;}] remoteExec ["call"];
+				vehicle_on_fire = vehicle_on_fire - [_vehicle_select];
 			}
 		}
 	} forEach _vehicle;

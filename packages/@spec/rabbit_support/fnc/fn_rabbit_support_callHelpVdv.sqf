@@ -13,7 +13,7 @@ if(Call_help)exitWith{hint "Запрос отклонен! Отряд пехот
         _select_player_pos = getPos player;
         player commandChat "Нам нужна немедленная помощь по нашим текущим координатам!";
         // Ищем позицию рядом с игроком
-        _find_safe_pos = [position player, 100, 300, 15, 0, 0.3, 0] call BIS_fnc_findSafePos;
+        _find_safe_pos = [_select_player_pos, 100, 300, 15, 0, 0.3, 0] call BIS_fnc_findSafePos;
         if(isNil "_find_safe_pos")exitWith{hint "Возле вас негде приземлится!"};
         // Создаём невидимую вертолётную площадку, для точной посадки вертолёта
         private _helipad = "Land_HelipadEmpty_F" createVehicle _find_safe_pos;
@@ -96,7 +96,7 @@ if(Call_help)exitWith{hint "Запрос отклонен! Отряд пехот
         count (_unitsCargo select {alive _x && (!isNull objectParent _x)}) == 0
         };
         // Добавляем группе вейпоинт для дальнейшего движения
-        _wp =_supgroup addWaypoint [position player, 0];
+        _wp =_supgroup addWaypoint [_select_player_pos, 0];
         _wp setWaypointType "HOLD";
         // Приказываем вертолёту уходить на указанные координаты
         _heli domove [0,0,0];
