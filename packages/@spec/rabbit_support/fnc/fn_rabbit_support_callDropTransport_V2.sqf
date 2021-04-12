@@ -56,6 +56,7 @@ if(Call_transport_V2)exitWith{hint "Запрос отклонен! Идет по
 			};
 
 		// возвращаю самолет на позицию 0 и удаляю
+		
 		(_C_130 select 0) flyInHeight 4000;
 		sleep 30;
 		{(_C_130 select 0) deleteVehicleCrew _x } forEach (_C_130 select 1);
@@ -66,3 +67,4 @@ if(Call_transport_V2)exitWith{hint "Запрос отклонен! Идет по
 	};
 
 }, {hint "Передача координат отменена!"}, "Передача координат для сброса транспорта..."] call ace_common_fnc_progressBar;
+
