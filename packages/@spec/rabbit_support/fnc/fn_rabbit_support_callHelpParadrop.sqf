@@ -96,7 +96,7 @@ if(Call_help_paradrop)exitWith{hint "Самолет еще не готов дл�
 			params ["_group_desant","_Position_player"];
 			waitUntil{
 				sleep 10;
-				_player_in_area = allPlayers inAreaArray [_Position_player, 500, 500, 100, false];
+				_player_in_area = allPlayers inAreaArray [_Position_player, 1000, 1000, 100, false];
     			isNil {_player_in_area select 0}
 			};
 			{deleteVehicle _x} forEach (units _group_desant);

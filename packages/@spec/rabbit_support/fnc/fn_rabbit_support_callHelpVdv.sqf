@@ -38,7 +38,7 @@ if(Call_help)exitWith{hint "Запрос отклонен! Отряд пехот
         private _flares = {
             while {alive driver _this && {!(isTouchingGround _this)}} do {
                 sleep 2,5;
-                _this action ["useWeapon", _this, driver _this, 0];
+                _this action ["useWeapon", _this, driver _this, 1];
             };
         };
         // Создаём контрмеры для цикличного использования на отходе
