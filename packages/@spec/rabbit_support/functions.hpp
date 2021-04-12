@@ -3,6 +3,8 @@ class rabbit_support {
 
   class rabbit_support_callDropTransport {};
 
+  class rabbit_support_callDropTransport_V2 {};
+
   class rabbit_support_callHelpParadrop {};
 
   class rabbit_support_callHelpVdv {};
