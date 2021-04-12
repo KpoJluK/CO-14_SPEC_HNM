@@ -1,5 +1,5 @@
 class btc_hm {
-    file = "packages\@spec\btc_hm\fnc";
+    file = "packages\spec_btc_hm\fnc";
 
     class btc_hm_preInit {
         preInit = 1;

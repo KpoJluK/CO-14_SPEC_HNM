@@ -29,25 +29,25 @@ class RscTitles {
 
 #include "core\fnc\task\taskTypes.hpp"
 
-#include "packages\KPGUI\KPGUI_defines.hpp"
-#include "packages\KPPLM\ui\KPPLM_dialog.hpp"
+#include "modules\KPGUI\KPGUI_defines.hpp"
+#include "modules\KPPLM\ui\KPPLM_dialog.hpp"
 
 class CfgFunctions {
     #include "core\fnc\eh\functions.hpp"
-    #include "packages\KPPLM\KPPLM_functions.hpp"
-    #include "packages\Gemini\functions.hpp"
+    #include "modules\KPPLM\KPPLM_functions.hpp"
+    #include "modules\GEMINI\functions.hpp"
     // add your own functions below
     class SPEC {
-		#include "packages\@spec\arsenal\functions.hpp"
-        #include "packages\@spec\cbps_deploy\functions.hpp"
-        #include "packages\@spec\btc_hm\functions.hpp"
-        #include "packages\@spec\rabbit_support\functions.hpp"
+		#include "modules\spec_arsenal\functions.hpp"
+        #include "modules\spec_cbps_deploy\functions.hpp"
+        #include "modules\spec_btc_hm\functions.hpp"
+        #include "modules\spec_rabbit_support\functions.hpp"
 	};
 };
 
 class CfgNotifications
 {
-    #include "packages\@spec\arsenal\notifications.hpp"
+    #include "modules\spec_arsenal\notifications.hpp"
 };
 
 // CBA XEH
