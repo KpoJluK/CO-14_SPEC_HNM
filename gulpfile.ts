@@ -25,7 +25,7 @@ const paths: FolderStructureInfo = {
     framework: [
         "./core",
         "./docs",
-        "./packages",
+        "./modules",
         "init.sqf",
         "define_mod.sqf",
         "README.md",
