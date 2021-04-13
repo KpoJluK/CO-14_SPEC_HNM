@@ -1,5 +1,5 @@
 class rabbit_support {
-  file = "packages\spec_rabbit_support\fnc";
+  file = "modules\spec_rabbit_support\fnc";
 
   class rabbit_support_callDropTransport {};
 

@@ -101,7 +101,13 @@ for (let preset of presets) {
                     // Do not compress (SLOW)
                     compress: true
                         ? []
-                        : ["**/*.sqf", "mission.sqm", "description.ext"],
+                        : [
+                              "core/img/",
+                              "core/sounds/",
+                              "**/*.sqf",
+                              "mission.sqm",
+                              "description.ext",
+                          ],
                 })
             )
             .pipe(gulp.dest(mission.getWorkDir() + "/pbo"));
