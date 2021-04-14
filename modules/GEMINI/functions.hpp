@@ -1,6 +1,6 @@
 class Gemini {
     class main {
-        file = "packages\GEMINI\fnc";
+        file = "modules\GEMINI\fnc";
 
         class lightSource {};
 
