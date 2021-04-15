@@ -54,7 +54,10 @@ while {STOP_burning_vehicle_car} do {
 					if(_time_to_destroid <= 0)exitWith{true};
 					!alive _vehicle_select or _vehicle_select getHitPointDamage "hitEngine" <= 0.6;
 				};
-				if(_time_to_destroid <=0)then{_vehicle_select setDamage 1};
+				if(_time_to_destroid <=0)then{
+					_vehicle_select setDamage 1
+					{_x setDamage 1} forEach crew _vehicle_select;
+				};
 				deleteVehicle _Fire;
 				deleteVehicle _Smoke;
 				deleteVehicle _light;
